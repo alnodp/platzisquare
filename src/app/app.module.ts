@@ -24,11 +24,11 @@ const appRoutes: Routes = [
   {path:'crear', component: CrearComponent},
 ];
 export const firebaseConfig = {
-  apiKey: "AIzaSyCqRLh5FrTaNAw4U8HzanVF98ONe6xsN9k",
-  authDomain: "platzisquare.firebaseapp.com",
-  databaseURL: "https://platzisquare.firebaseio.com",
-  storageBucket: "platzisquare.appspot.com",
-  messagingSenderId: "876436758177"
+  apiKey: "AIzaSyDtU55xwqYkxKvJl3ZX3prlsMXdSS4gy1E",
+  authDomain: "platzisquare-7bc56.firebaseapp.com",
+  databaseURL: "https://platzisquare-7bc56.firebaseio.com",
+  storageBucket: "platzisquare-7bc56.appspot.com",
+  messagingSenderId: "110282454387"
 };
 @NgModule({
   declarations: [
