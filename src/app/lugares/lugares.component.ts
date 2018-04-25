@@ -16,6 +16,6 @@ export class LugaresComponent {
         .subscribe(lugares => {
             console.log(lugares)
             this.lugares = lugares;
-        })
+        });
     }
 }
