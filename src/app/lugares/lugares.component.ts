@@ -13,12 +13,10 @@ export class LugaresComponent {
     lugares = null;
     constructor(private lugaresService: LugaresService){
         lugaresService.getLugares()
-        .subscribe(lugares => {
-            console.log(lugares)
-            //this.lugares = lugares;
-            this.lugares = lugares;
-            this.lugares = Object.keys(this.lugares).map((key) => this.lugares[key]);
-            debugger;
-        });
+            .subscribe(lugares =>{
+                this.lugares = lugares;
+                var me = this;
+                me.lugares = Object.keys(me.lugares).map(function (key) { return me.lugares[key]; });
+            });
     }
 }

@@ -16,20 +16,18 @@ export class LugaresService{
     public getLugares(){
         //return this.afDB.list('lugares/');
         return this.http.get(this.API_ENDPOINT+'/.json')
-        .map((resultado) => {
-            const data = resultado.json().lugares;
-            return data;
-        });
+            .map((resultado)=>{
+                const data = resultado.json().lugares;
+                return data;
+            })
     }
     public buscarLugar(id){
         return this.lugares.filter((lugar) => { return lugar.id == id})[0] || null;
     }
     public guardarLugar(lugar){
-        //this.afDB.object('lugares/'+lugar.id).set(lugar);
+        //this.afDB.database.ref('lugares/'+lugar.id).set(lugar);
         const headers = new Headers({"Content-Type":"application/json"});
-        console.log('guardar', lugar);
-         return this.http.post(this.API_ENDPOINT+'/lugares.json', lugar, {headers:headers})
-         .subscribe((e)=>console.log(e));
+        return this.http.post(this.API_ENDPOINT+'/lugares.json', lugar, {headers:headers});
     }
     public editarLugar(lugar){
         this.afDB.object('lugares/'+lugar.id).set(lugar);
