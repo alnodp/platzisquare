@@ -2,34 +2,35 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule} from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
-import {ResaltarDirective} from "./directives/resaltar.directive";
-import {ContarClicksDirective} from "./directives/contar-clicks.directive";
+import {ResaltarDirective} from './directives/resaltar.directive';
+import {ContarClicksDirective} from './directives/contar-clicks.directive';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {Routes, RouterModule} from "@angular/router";
-import {DetalleComponent} from "./detalle/detalle.component";
-import {LugaresComponent} from "./lugares/lugares.component";
-import {ContactoComponent} from "./contacto/contacto.component";
-import {LugaresService} from "./services/lugares.service";
+import {Routes, RouterModule} from '@angular/router';
+import {DetalleComponent} from './detalle/detalle.component';
+import {LugaresComponent} from './lugares/lugares.component';
+import {ContactoComponent} from './contacto/contacto.component';
+import {LugaresService} from './services/lugares.service';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import {CrearComponent} from "./crear/crear.component";
-import {HttpModule} from "@angular/http";
+import {CrearComponent} from './crear/crear.component';
+import {HttpModule} from '@angular/http';
+import {LinkifystrPipe} from './pipes/linkifystr.pipe';
 const appRoutes: Routes = [
-  {path:'', component: LugaresComponent},
-  {path:'lugares', component: LugaresComponent},
-  {path:'detalle/:id', component: DetalleComponent},
-  {path:'contacto', component: ContactoComponent},
-  {path:'crear/:id', component: CrearComponent},
+  {path: '', component: LugaresComponent},
+  {path: 'lugares', component: LugaresComponent},
+  {path: 'detalle/:id', component: DetalleComponent},
+  {path: 'contacto', component: ContactoComponent},
+  {path: 'crear/:id', component: CrearComponent},
 ];
 export const firebaseConfig = {
-  apiKey: "AIzaSyDtU55xwqYkxKvJl3ZX3prlsMXdSS4gy1E",
-  authDomain: "platzisquare-7bc56.firebaseapp.com",
-  databaseURL: "https://platzisquare-7bc56.firebaseio.com",
-  storageBucket: "platzisquare-7bc56.appspot.com",
-  messagingSenderId: "110282454387"
+  apiKey: 'AIzaSyDtU55xwqYkxKvJl3ZX3prlsMXdSS4gy1E',
+  authDomain: 'platzisquare-7bc56.firebaseapp.com',
+  databaseURL: 'https://platzisquare-7bc56.firebaseio.com',
+  storageBucket: 'platzisquare-7bc56.appspot.com',
+  messagingSenderId: '110282454387'
 };
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ export const firebaseConfig = {
       DetalleComponent,
       LugaresComponent,
       ContactoComponent,
-      CrearComponent
+      CrearComponent,
+    LinkifystrPipe
   ],
   imports: [
     BrowserModule,

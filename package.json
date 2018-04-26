@@ -29,6 +29,7 @@
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
     "firebase": "^3.6.6",
+    "linkifyjs": "^2.1.6",
     "ngx-bootstrap": "^2.0.4",
     "rxjs": "^5.4.1",
     "save": "^2.3.2",

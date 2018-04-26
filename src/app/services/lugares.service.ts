@@ -14,31 +14,31 @@ export class LugaresService {
         {id: 5, plan: 'pagado', cercania: 3, distancia: 35, active: true, nombre: 'Hotel la Gracia'},
         {id: 6, plan: 'gratuito', cercania: 3, distancia: 120, active: false, nombre: 'Zapatería el Clavo'},
     ];
-    constructor(private afDB: AngularFireDatabase, private http: Http){}
+    constructor(private afDB: AngularFireDatabase, private http: Http) {}
     public getLugares() {
-        // return this.afDB.list('lugares/');
-        return this.http.get(this.API_ENDPOINT + '/.json')
-            .map((resultado) => {
+        return this.afDB.list('lugares/');
+        /*return this.http.get(this.API_ENDPOINT+'/.json')
+            .map((resultado)=>{
                 const data = resultado.json().lugares;
                 return data;
-            });
+            })*/
     }
     public buscarLugar(id) {
         return this.lugares.filter((lugar) => lugar.id == id)[0] || null;
     }
     public guardarLugar(lugar) {
-        // this.afDB.database.ref('lugares/'+lugar.id).set(lugar);
-        const headers = new Headers({'Content-Type': 'application/json'});
-        return this.http.post(this.API_ENDPOINT + '/lugares.json', lugar, {headers: headers});
+        this.afDB.object('lugares/' + lugar.id).set(lugar);
+        // const headers = new Headers({"Content-Type":"application/json"});
+        // return this.http.post(this.API_ENDPOINT+'/lugares.json', lugar, {headers:headers});
     }
-    public editarLugar(lugar){
+    public editarLugar(lugar) {
         this.afDB.object('lugares/' + lugar.id).set(lugar);
     }
-    public obtenerGeoData(direccion){
+    public obtenerGeoData(direccion) {
         // http://maps.google.com/maps/api/geocode/json?address=9-55+calle+72,+Bogota,Colombia
         return this.http.get('http://maps.google.com/maps/api/geocode/json?address=' + direccion);
     }
-    public getLugar(id){
+    public getLugar(id) {
         return this.afDB.object('lugares/' + id);
     }
 }
