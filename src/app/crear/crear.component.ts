@@ -11,6 +11,7 @@ export class CrearComponent {
     id:any = null;
     constructor(private lugaresService: LugaresService, private route: ActivatedRoute){
         this.id = this.route.snapshot.params['id'];
+        console.log('crear id '+this.id);
         if(this.id != 'new'){
             this.lugaresService.getLugar(this.id)
                 .subscribe((lugar)=>{

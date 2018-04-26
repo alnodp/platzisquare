@@ -15,7 +15,10 @@ export class LugaresComponent {
         lugaresService.getLugares()
         .subscribe(lugares => {
             console.log(lugares)
+            //this.lugares = lugares;
             this.lugares = lugares;
+            this.lugares = Object.keys(this.lugares).map((key) => this.lugares[key]);
+            debugger;
         });
     }
 }
